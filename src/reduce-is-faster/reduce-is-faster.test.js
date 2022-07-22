@@ -7,7 +7,7 @@ const length = 1_000_000;
 const smallData = Array.from({ length: 4 }, (_, i) => i + 1);
 const bigData = Array.from({ length }, (_, i) => i + 1);
 
-test("reduce function is faster than map & filter compose", () => {
+test("reduce function is faster than map & filter composed", () => {
   const expected = [4, 8];
   const filterMappedResult = filterMappedBigData(smallData);
   const reducedResult = reducedBigData(smallData);
