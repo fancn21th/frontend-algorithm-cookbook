@@ -6,7 +6,8 @@
   "author": "fancn21th <fancn21th@aliyun.com> (http://fancn21th.cn/)",
   "license": "MIT",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "watch:test": "jest --watch"
   },
   "devDependencies": {
     "@babel/core": "7.18.9",
