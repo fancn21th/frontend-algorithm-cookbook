@@ -15,13 +15,13 @@ test("reduce function is faster than map & filter compose", () => {
   expect(filterMappedResult).toStrictEqual(expected);
   expect(reducedResult).toStrictEqual(expected);
 
-  // 以下并非测试而是查看对比时间消耗
+  // 以下并非测试而是查看对比时间消耗 暂时被注释
 
-  console.time("filter and map");
-  filterMappedBigData(bigData);
-  console.timeEnd("filter and map");
+  // console.time("filter and map");
+  // filterMappedBigData(bigData);
+  // console.timeEnd("filter and map");
 
-  console.time("reduce");
-  reducedBigData(bigData);
-  console.timeEnd("reduce");
+  // console.time("reduce");
+  // reducedBigData(bigData);
+  // console.timeEnd("reduce");
 });
