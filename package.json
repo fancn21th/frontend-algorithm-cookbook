@@ -1,0 +1,14 @@
+{
+  "name": "frontend-algorithem",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fancn21th/frontend-algorithm-cookbook.git",
+  "author": "fancn21th <fancn21th@aliyun.com> (http://fancn21th.cn/)",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "28.1.3"
+  }
+}
