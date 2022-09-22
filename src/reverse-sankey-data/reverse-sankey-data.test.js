@@ -229,43 +229,47 @@ describe("do consider data is complete", () => {
     expect(result).toStrictEqual(expected);
   });
 
-  // test("data is spread in three levels ", () => {
-  //   /*
+  test("data is shuffled in two levels ", () => {
+    /*
 
-  //         / d
-  //       / b
-  //     a   \ e
-  //       \
-  //        \c/ f
-  //         \ g
-  //   */
+a(5|5)\    /c(9)
+      \  / 
+       \ 
+b(4|6) / \d(11)
+    
+    */
 
-  //   const source = [
-  //     {
-  //       source: "foo",
-  //       target: "bar",
-  //       value: 10,
-  //     },
-  //     {
-  //       source: "bar",
-  //       target: "baz",
-  //       value: 10,
-  //     },
-  //     {
-  //       source: "foo",
-  //       target: "baz",
-  //       value: 10,
-  //     },
-  //   ];
+    const source = [
+      {
+        source: "a",
+        target: "c",
+        value: 5,
+      },
+      {
+        source: "a",
+        target: "d",
+        value: 5,
+      },
+      {
+        source: "b",
+        target: "c",
+        value: 4,
+      },
+      {
+        source: "b",
+        target: "d",
+        value: 6,
+      },
+    ];
 
-  //   const result = reverseSankeyData(source);
+    const result = reverseSankeyData(source);
 
-  //   console.log({
-  //     result,
-  //   });
+    console.log({
+      result,
+    });
 
-  //   const expected = { 1: { foo: 20 }, 2: { bar: 10, baz: 10 } };
+    const expected = { 1: { a: 10, b: 10 }, 2: { c: 9, d: 11 } };
 
-  //   expect(result).toStrictEqual(expected);
-  // });
+    expect(result).toStrictEqual(expected);
+  });
 });
