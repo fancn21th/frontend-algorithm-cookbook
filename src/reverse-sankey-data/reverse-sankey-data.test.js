@@ -44,3 +44,33 @@ test("single flow with three nodes in a row", () => {
 
   expect(result).toStrictEqual(expected);
 });
+
+test("two flows with four nodes in two rows", () => {
+  const source = [
+    {
+      source: "foo",
+      target: "bar",
+      value: 10,
+    },
+    {
+      source: "bar",
+      target: "baz",
+      value: 20,
+    },
+    {
+      source: "foo",
+      target: "foz",
+      value: 20,
+    },
+  ];
+
+  const result = reverseSankeyData(source);
+
+  console.log({
+    result,
+  });
+
+  const expected = { 1: { foo: 30 }, 2: { bar: 30, foz: 20 }, 3: { baz: 20 } };
+
+  expect(result).toStrictEqual(expected);
+});

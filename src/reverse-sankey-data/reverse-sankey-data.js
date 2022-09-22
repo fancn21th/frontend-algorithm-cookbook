@@ -42,7 +42,6 @@ export const reverseSankeyData = (flowsData) => {
       fromNode = {
         name: source,
         sequence: 1,
-        next: null, // set in coming step
         value,
       };
     }
@@ -60,15 +59,12 @@ export const reverseSankeyData = (flowsData) => {
       toNode = {
         name: target,
         sequence: isSourceAlreadyExisted ? fromNode.sequence + 1 : 2,
-        next: null,
         value,
       };
     }
 
     // override
     acc[target] = toNode;
-
-    fromNode.next = toNode;
 
     return acc;
   }, {});
