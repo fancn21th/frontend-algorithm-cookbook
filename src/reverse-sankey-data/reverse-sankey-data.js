@@ -33,10 +33,15 @@ export const reverseSankeyData = (flowsData) => {
 
     let fromNode = undefined;
     let isSourceAlreadyExisted = false;
+    let isSourceAtLevel1 = false;
 
     // source is already existed
     if (acc[source]) {
-      fromNode = { ...acc[source], value: acc[source].value + value };
+      isSourceAtLevel1 = acc[source].sequence === 1;
+      fromNode = {
+        ...acc[source],
+        value: isSourceAtLevel1 ? acc[source].value + value : acc[source].value,
+      };
       isSourceAlreadyExisted = true;
     } else {
       fromNode = {
