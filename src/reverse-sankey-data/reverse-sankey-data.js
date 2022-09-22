@@ -29,23 +29,46 @@ export const reverseSankeyData = (flowsData) => {
      *
      * */
 
-    const toNode = {
-      name: target,
-      sequence: 2,
-      next: null,
-      value,
-    };
+    // source node
 
+    let fromNode = undefined;
+    let isSourceAlreadyExisted = false;
+
+    // source is already existed
+    if (acc[source]) {
+      fromNode = { ...acc[source], value: acc[source].value + value };
+      isSourceAlreadyExisted = true;
+    } else {
+      fromNode = {
+        name: source,
+        sequence: 1,
+        next: null, // set in coming step
+        value,
+      };
+    }
+
+    // override
+    acc[source] = fromNode;
+
+    // target node
+
+    let toNode = undefined;
+
+    if (acc[target]) {
+      toNode = { ...acc[target], value: acc[target].value + value };
+    } else {
+      toNode = {
+        name: target,
+        sequence: isSourceAlreadyExisted ? fromNode.sequence + 1 : 2,
+        next: null,
+        value,
+      };
+    }
+
+    // override
     acc[target] = toNode;
 
-    const fromNode = {
-      name: source,
-      sequence: 1,
-      next: [toNode],
-      value,
-    };
-
-    acc[source] = fromNode;
+    fromNode.next = toNode;
 
     return acc;
   }, {});
